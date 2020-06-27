@@ -1,0 +1,54 @@
+Start project Django: 
+>>django-admin startproject "project_name" .
+
+Create APP: 
+>>python manage.py startapp "name_file"
+
+Visualize commands:
+>>python manage.py
+
+Run initial migrations:
+>>python manage.py makemigrations
+-Create migrations/0001_initial.py
+
+Run test:
+>>python manage.py test
+
+aplicar en el banco canbios migrate:
+>>python manage.py migrate
+
+ipython to load django
+>>python manage.py shell
+---------------------------------------------------------------------------
+[iPython]
+from products.models import Product, Category
+
+category = Category.objects.create(name='Category1', description='Desc1')
+
+for i in range(10):
+
+    product = Product()
+    product.name =f'Product{i}'
+    product.description = f'Prod Desc{i}'
+    product.price = i+0.5
+    product.category = category
+    product.save()
+
+#Vizualise object created
+Product.objects.all()
+-----------------------------------------------------------------------------
+
+Run Djando server
+>>python3 manage.py runserver
+
+
+>>python manage.py createsuperuser
+>> python manage sqlmigrate poll 0001
+>>
+
+Guardar pip intalation
+>>pip freeze > requeriments.txt
+
+Create super user
+
+>> python manage createsuperuser
