@@ -10,3 +10,5 @@
 - python-8: JSON Web Token
 - python-9: Add products in DJANGO
 - Django-products: Create Database in DJANGO
+- python-10: DJANGO REST
+- python-11: DJANGO ORM queries
