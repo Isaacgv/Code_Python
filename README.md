@@ -11,4 +11,6 @@
 - python-9: Add products in DJANGO
 - Django-products: Create Database in DJANGO
 - python-10: DJANGO REST
+- REST API: Create Database with REST API
 - python-11: DJANGO ORM queries
+- ORM Queries: Database with ORM queries
