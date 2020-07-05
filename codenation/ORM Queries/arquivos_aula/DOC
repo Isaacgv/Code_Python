@@ -1,0 +1,64 @@
+from products.models import Product
+
+Product.objects.filter(name='Jogo Uno')
+
+queryset = Product.objects.filter(name='Jogo Uno')
+
+#show query use to call db
+print(queryset.query)
+
+#print product and prive
+for product in queryset:
+    print(product.name, product.price)
+
+Product.objects.filter(name="Uno")
+
+#search that contain the especific word
+Product.objects.filter(name__contains="Uno")
+
+#
+Product.objects.filter(name__startswith='lava')
+
+#list products that prices > 100
+Product.objects.filter(price__gte=100)
+
+#List category name
+Product.objects.filter(category__name='Brinquedos')
+
+#List category contain ' ' 
+Product.objects.filter(category__name__contains='nque')
+
+
+# List category contain ' ' and price <=120
+Product.objects.filter(category__name__contains='nque', price__lte=120)
+
+------------------------------------------------------------------
+#return the object, need to only return one elemente
+Product.objects.get(name='Geladeira')
+
+===============================================================
+
+Raw SQL
+
+raw_queryset = Product.objects.raw('select * from products_product')
+
+for product in raw_queryset:
+    print(product.name, product.price)
+
+#Required include primary key
+for product in Product.objects.raw('select id, name from products_product'):
+    print(product)
+
+#
+for product in Product.objects.raw('select id, name from products_product'):
+    print(product, product.price)
+
+#Add new product and list all elements
+from django.db import connection
+
+with connection.cursor() as cursor:
+    cursor.execute('insert into products_product (name, price, description, category_id) values ("product cursor",
+    10.99, "product cursor description", 1)')
+    cursor.execute('select * from products_product')
+    for row in cursor.fetchall():
+        print(row)
